@@ -9,8 +9,10 @@ const DefaultLayout = () => {
           <div className='col-span-2 bg-black'>
             <SideBar/>
           </div>
-          <div className='col-span-10 bg-gray-100 md:p-5'>
-            <DescriptionPage/>
+          <div className='col-span-10 bg-gray-100 md:p-5 w-full'>
+            <div className='relative'>
+              <DescriptionPage/>
+            </div>
             <Outlet/>
           </div>
         </div>

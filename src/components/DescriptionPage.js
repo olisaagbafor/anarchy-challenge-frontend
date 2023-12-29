@@ -35,7 +35,7 @@ const DescriptionPage = () => {
   const handleOpen = () => setOpen(!open);
 
   return (
-    <div className="mb-5 relative">
+    <div className="mb-5 absolute w-full">
       <Dialog
         open={open}
         handler={handleOpen}

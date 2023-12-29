@@ -20,10 +20,20 @@ const SideBar = () => {
       <div className='mt-7'>
         <p className='text-gray-700 mb-3 text-sm font-semibold md:ml-5'>Previous 30 Days</p>
       </div>
-      <div className='overflow-y-auto h-white h-full w-full text-white' style={{height:"650px"}}>
+      <div className='overflow-y-auto h-white h-full w-full text-white'>
+        <Button fullWidth className='pr-1 text-left'>
+          <NavLink className={"capitalize text-white text-sm"} >
+            No Overlapping types
+          </NavLink>
+          <div className='absolute right-5 top-3.5'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+            </svg>
+          </div>
+        </Button>
       </div>
 
-      <div className='question-previous-months h-auto absolute left-0 right-0 bottom-0'>
+      <div className='question-previous-months h-auto fixed bottom-0'>
         <div className=' w-full mt-5'>
         <Button variant='text' className='text-white flex justify-start gap-x-3 text-left relative capitalize' fullWidth>
           <div>
