@@ -1,4 +1,4 @@
-import { Input, IconButton } from '@material-tailwind/react'
+import { Input, Textarea, IconButton } from '@material-tailwind/react'
 import React from 'react'
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
       </div>
       <div className='absolute left-80 right-36  bottom-10 pt-6 pb-2'>
         <form className=''>
-          <Input size='lg' label='Message ChatGPT' className='rounded-full py-6'/>
+          <Textarea placeholder='Message ChatGPT'></Textarea>
           <div className='absolute right-0 top-7'>
             <IconButton className='' variant='text'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
