@@ -11,6 +11,7 @@ import AuthFilter from "./filters/AuthFilter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./contexts/AuthProvider";
+import NewChat from "./pages/NewChat";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               }
             /> */}
             <Route index element={<Home />} />
+            <Route path="/new" element={<NewChat/>}/>
           </Route>
 
           <Route path="/welcome" element={<AuthPage />} />
