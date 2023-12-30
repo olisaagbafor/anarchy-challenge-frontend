@@ -19,7 +19,7 @@ const AuthPage = () => {
         </div>
         <div className='col-span-5'>
             <div className='text-center text-xl md:text-3xl mt-72 font-semibold'>
-                Get Started
+                Get Started 
             </div>
             <div className='flex gap-2 md:w-3/4 mx-auto mt-3'>
                 <NavLink to="../../auth/login/identifier" className={"w-full"}>
