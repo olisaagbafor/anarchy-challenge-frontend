@@ -5,3 +5,14 @@
     font-family: 'Poppins', sans-serif;
     font-family: 'PT Sans', sans-serif;
 }
+
+.auth-login{
+    background-color: #10a37f;
+}
+
+.auth-text {
+    color: #10a37f;
+}
+.auth-btn-sign-up{
+    background-color: rgb(25, 103, 210);;
+}
