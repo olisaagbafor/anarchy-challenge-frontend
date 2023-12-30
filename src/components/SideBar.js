@@ -50,7 +50,7 @@ const SideBar = () => {
                 <div>
                   <img className="w-9 rounded-lg" src={user?.picture} />
                 </div>
-                <div className="text-white text-sm mt-1.5">{user?.display_name}</div>
+                <div className="text-white text-sm mt-1.5">{user?.display_name || "Onwe Destiny"}</div>
               </Button>
             </MenuHandler>
             <MenuList>

@@ -23,14 +23,15 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route
+            {/* <Route
               index
               element={
                 <AuthFilter>
                   <Home />
                 </AuthFilter>
               }
-            />
+            /> */}
+            <Route index element={<Home />} />
           </Route>
 
           <Route path="/welcome" element={<AuthPage />} />
