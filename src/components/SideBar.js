@@ -35,11 +35,26 @@ const SideBar = () => {
         <Button fullWidth className="pr-1 text-left">
           <NavLink className={"capitalize text-white text-sm"}>No Overlapping types</NavLink>
           <div className="absolute right-5 top-3.5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-            </svg>
+          <Menu placement="right-start">
+          <MenuHandler>
+            <Button>
+            <div className="absolute right-1 -top-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+              </svg>
+            </div>
+            </Button>
+          </MenuHandler>
+          <MenuList>
+            <MenuItem>Share</MenuItem>
+            <MenuItem>Rename</MenuItem>
+            <MenuItem>Archive chat</MenuItem>
+            <MenuItem>Delete chat</MenuItem>
+          </MenuList>
+        </Menu>
           </div>
         </Button>
+        
       </div>
 
       <div className="question-previous-months h-auto fixed bottom-0">
