@@ -1,36 +1,33 @@
 import { Input, Textarea, IconButton } from "@material-tailwind/react";
 import React, { useState, useEffect } from "react";
 import ConversationForm from "./ConversationForm";
-import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthProvider";
+import { useChatContext } from "../contexts/ChatProvider";
 import { toast } from "react-toastify";
+import { useNavigate, useParams } from "react-router";
 
 function ChatLayout() {
-  const params = useParams();
-  const { id } = params;
   const [loading, setLoading] = useState(false);
-  const [conversations, setConversations] = useState([]);
   const { user } = useAuth();
-
+  const params = useParams();
+  const { chat_id } = params;
+  const { conversations, setConversations } = useChatContext();
 
   useEffect(() => {
-    console.log(id)
     setLoading(true);
     axios
-      .get(`${process.env.REACT_APP_API_BASEURL}/chats/${id}/conversations`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_BASEURL}/chats/${chat_id}/conversations`, { withCredentials: true })
       .then((res) => {
-        setConversations(res.data.data)
-        console.log(res.data.data)
+        setConversations(res.data.data);
       })
       .catch((err) => {
         if (err.response) {
-          console.log(err)
           toast.error(err.response.data.error);
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [chat_id]);
 
   return (
     <div className="mt-14 p-8 md:p-8 w-full h-screen overflow-y-auto">
@@ -57,15 +54,15 @@ function ChatLayout() {
                   {conversation?.responses[0]}
                   <div className="flex justify-start gap-x-6">
                     <div className="flex gap-x-2 mt-2">
-                        <div className="mt-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                          </svg>
-                        </div>
+                      <div className="mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                      </div>
                       <div>2/2</div>
                       <div className="mt-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                         </svg>
                       </div>
                     </div>
@@ -101,8 +98,7 @@ function ChatLayout() {
         </div>
       ))}
 
-      
-        <ConversationForm />
+      <ConversationForm chat_id={chat_id} />
     </div>
   );
 }

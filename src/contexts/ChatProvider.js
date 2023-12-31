@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext, createContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 import { toast } from "react-toastify";
 
@@ -9,8 +8,8 @@ const ChatContext = createContext();
 export const ChatProvider = ({ children }) => {
   const auth = useAuth();
   const { user } = auth;
+
   const [chats, setChats] = useState([]);
-  const [activeChat, setActiveChat] = useState({});
   const [conversations, setConversations] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -25,9 +24,9 @@ export const ChatProvider = ({ children }) => {
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [user]);
 
-  return <ChatContext.Provider value={{ chats, setChats, loading, activeChat, setActiveChat, conversations, setConversations }}>{children}</ChatContext.Provider>;
+  return <ChatContext.Provider value={{ chats, setChats, loading, conversations, setConversations }}>{children}</ChatContext.Provider>;
 };
 
 export const useChatContext = () => {
