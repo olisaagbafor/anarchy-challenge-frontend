@@ -12,6 +12,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./contexts/AuthProvider";
 import NewChat from "./pages/NewChat";
+import { ChatProvider } from "./contexts/ChatProvider";
+import ChatLayout from "./components/ChatLayout";
 
 function App() {
   return (
@@ -22,26 +24,26 @@ function App() {
       </Helmet>
 
       <AuthProvider>
-        <Routes>
-          <Route element={<DefaultLayout />}>
-            {/* <Route
-              index
+        <ChatProvider>
+          <Routes>
+            <Route
               element={
                 <AuthFilter>
-                  <Home />
+                  <DefaultLayout />
                 </AuthFilter>
               }
-            /> */}
-            <Route index element={<Home />} />
-            <Route path="/new" element={<NewChat/>}/>
-          </Route>
+            >
+              <Route index element={<ChatLayout />} />
+              <Route path="/chat/:id" element={<ChatLayout />} />
+            </Route>
 
-          <Route path="/welcome" element={<AuthPage />} />
-          <Route path="/auth/sign-up" element={<Login />} />
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/*" element={<Error404 />} />
-        </Routes>
-        <ToastContainer />
+            <Route path="/welcome" element={<AuthPage />} />
+            <Route path="/auth/sign-up" element={<Login />} />
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/*" element={<Error404 />} />
+          </Routes>
+          <ToastContainer />
+        </ChatProvider>
       </AuthProvider>
     </div>
   );
