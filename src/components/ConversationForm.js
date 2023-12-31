@@ -31,18 +31,20 @@ function ConversationForm() {
       .finally(() => setLoading(false));
   };
   return (
-    <form>
+    <div className="fixed bg-gray-100 left-80 right-36 z-50 bottom-0 pt-6 pb-2">
+    <form className=" p-10">
       <Textarea onChange={(e) => setQuestion(e.target.value)} className="relative" placeholder="Message ChatGPT"></Textarea>
-      <div className="absolute right-52 bottom-10">
+      <div className="absolute z-50 right-14  bottom-32">
         <IconButton onClick={() => createChat()} variant="text">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
           </svg>
         </IconButton>
       </div>
-
       <p className="text-sm text-gray-700 text-center mt-2">ChatGPT can make mistakes. Consider checking important information.</p>
+
     </form>
+    </div>
   );
 }
 

@@ -29,9 +29,7 @@ const NewChat = () => {
             <p className="text-xl font-semibold">Recommend a dish</p>
             <p>To bring to a potluck</p>
           </div>
-          <div className=" p-3 col-span-12 mt-10">
-            <ConversationForm />
-          </div>
+          <ConversationForm />
         </div>
       </div>
     </div>

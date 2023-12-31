@@ -33,26 +33,28 @@ const SideBar = () => {
         </div>
       </Button>
 
-      <div className="mt-7">
+     <div className="overflow-y-auto h-white h-full" style={{height: "600px"}}>
+     <div className="mt-7">
         <p className="text-gray-700 mb-3 text-sm font-semibold md:ml-5">Previous 30 Days</p>
       </div>
-      <div className="overflow-y-auto h-white h-full w-full text-white">
+      <div className=" relative w-full text-white">
         {chats?.map((chat, index) => (
-          <Button key={index} fullWidth className="pr-1 text-left">
             <NavLink
-              onClick={(chat) => {
-                setActiveChat(chat);
-                console.log(chat);
-              }}
+            key={index}
+              to={`chat/${chat._id}`}
               className={"capitalize text-white text-sm"}
             >
+          <Button fullWidth className="pr-1 relative text-left">
               {chat?.title}
-            </NavLink>
-            <div className="absolute right-5 top-3.5">
+            
+            <div className="absolute right-0 top-1.5">
               <Menu placement="right-start">
                 <MenuHandler>
-                  <Button>
-                    <div className="absolute right-1 -top-0">
+                  <Button onClick={(chat) => {
+                setActiveChat(chat);
+                console.log(chat._);
+              }}>
+                    <div className="">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                         <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                       </svg>
@@ -68,6 +70,7 @@ const SideBar = () => {
               </Menu>
             </div>
           </Button>
+          </NavLink>
         ))}
       </div>
 
@@ -108,6 +111,7 @@ const SideBar = () => {
           </Menu>
         </div>
       </div>
+     </div>
     </div>
   );
 };

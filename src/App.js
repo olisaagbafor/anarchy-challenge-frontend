@@ -33,7 +33,7 @@ function App() {
                 </AuthFilter>
               }
             >
-              <Route index element={<ChatLayout />} />
+              <Route index element={<NewChat />} />
               <Route path="/chat/:id" element={<ChatLayout />} />
             </Route>
 
