@@ -19,7 +19,7 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative">
+    <div className="relative h-screen overflow-y-auto">
       <Button onClick={() => navigate("/")} variant="text" fullWidth className="logo flex border-b border-gray-900 rounded-none justify-between">
         <div className="flex justify-start gap-x-5">
           <img src={require("../assets/favicon.png")} />
@@ -72,14 +72,14 @@ const SideBar = () => {
         </div>
 
         <div className="question-previous-months h-auto fixed bottom-0">
-          <div className=" w-full mt-5">
+          <div className="w-full mt-5">
             <Menu placement="top-end">
               <MenuHandler>
                 <Button variant="text" className="text-white flex justify-start gap-x-3 text-left relative capitalize" fullWidth>
                   <div>
                     <img className="w-9 rounded-lg" src={user?.picture} />
                   </div>
-                  <div className="text-white text-sm mt-1.5">{user?.display_name || "Onwe Destiny"}</div>
+                  <div className="text-white text-sm mt-1.5">{user?.display_name || "No User"}</div>
                 </Button>
               </MenuHandler>
               <MenuList>
