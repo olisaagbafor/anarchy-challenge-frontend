@@ -40,10 +40,10 @@ function ChatLayout() {
           <div key={index} className="md:w-3/5 md:p-10 p-6 mx-auto bg-gray-100 overflow-y-auto">
             <div className="flex justify-start gap-2">
               <div className="logo">
-                <img src={user?.picture} className="w-9 rounded-lg" />
+                <img src={conversation.user?.picture} className="w-9 rounded-lg" />
               </div>
               <div>
-                <p className="font-semibold text-lg mb-0">{user?.display_name}</p>
+                <p className="font-semibold text-lg mb-0">{conversation.user?.display_name}</p>
                 <div className="name-title">{conversation?.question} </div>
               </div>
             </div>
