@@ -33,7 +33,7 @@ function ChatLayout() {
   return (
     <>
       <div className="relative">
-        <DescriptionPage />
+        <DescriptionPage chat_id={chat_id} />
       </div>
       <div className="mt-14 p-8 md:p-8 w-full h-screen overflow-y-auto">
         {conversations?.map((conversation, index) => (

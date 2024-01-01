@@ -51,33 +51,22 @@ function ConversationForm({ chat_id }) {
   };
   return (
     <div className="fixed bg-gray-100 left-80 right-36 z-50 bottom-0 pt-6 pb-2">
-      <form className=" p-10">
-        <Textarea
-          onChange={(e) => setQuestion(e.target.value)}
-          className="relative min-h-full !border-0 focus:border-transparent"
-          rows={1}
-          resize={true}
-          containerProps={{
-            className: "grid h-full",
+      <form className="p-5 space-x-5 flex">
+        <Textarea placeholder="Message ChatGPT..." resize={true} onChange={(e) => setQuestion(e.target.value)} disabled={loading} className={`relative min-h-full bg-transparent focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-gray-300 ${!loading && "animate-pulse"}`}>
+          {question}
+        </Textarea>
+
+        <IconButton
+          onClick={() => {
+            chat_id ? addConversation() : createChat();
           }}
-          labelProps={{
-            className: "before:content-none after:content-none",
-          }}
-          placeholder="Message ChatGPT"
-        />
-        <div className="absolute z-50 right-14  bottom-32">
-          <IconButton
-            onClick={() => {
-              chat_id ? addConversation() : createChat();
-            }}
-            variant="text"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
-            </svg>
-          </IconButton>
-        </div>
-        <p className="text-sm text-gray-700 text-center mt-2">ChatGPT can make mistakes. Consider checking important information.</p>
+          disabled={!question || loading}
+          className="bg-[#11A37F] hover:opacity-50 text-white font-bold px-4 py-2 rounded disabled:bg-gray-300 disabled:cursor-not-allowed"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 -rotate-45">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+          </svg>
+        </IconButton>
       </form>
     </div>
   );
