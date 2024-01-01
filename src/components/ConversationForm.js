@@ -52,7 +52,19 @@ function ConversationForm({ chat_id }) {
   return (
     <div className="fixed bg-gray-100 left-80 right-36 z-50 bottom-0 pt-6 pb-2">
       <form className=" p-10">
-        <Textarea onChange={(e) => setQuestion(e.target.value)} className="relative" placeholder="Message ChatGPT"></Textarea>
+        <Textarea
+          onChange={(e) => setQuestion(e.target.value)}
+          className="relative min-h-full !border-0 focus:border-transparent"
+          rows={1}
+          resize={true}
+          containerProps={{
+            className: "grid h-full",
+          }}
+          labelProps={{
+            className: "before:content-none after:content-none",
+          }}
+          placeholder="Message ChatGPT"
+        />
         <div className="absolute z-50 right-14  bottom-32">
           <IconButton
             onClick={() => {

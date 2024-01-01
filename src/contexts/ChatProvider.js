@@ -12,6 +12,7 @@ export const ChatProvider = ({ children }) => {
   const [chats, setChats] = useState([]);
   const [conversations, setConversations] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [share, setShare] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -26,7 +27,7 @@ export const ChatProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }, [user]);
 
-  return <ChatContext.Provider value={{ chats, setChats, loading, conversations, setConversations }}>{children}</ChatContext.Provider>;
+  return <ChatContext.Provider value={{ chats, setChats, loading, conversations, setConversations, share, setShare }}>{children}</ChatContext.Provider>;
 };
 
 export const useChatContext = () => {
